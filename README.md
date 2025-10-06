@@ -73,20 +73,20 @@ src/
 
 ## Time Breakdown
 
-| Task                                                                       | Time Spent  |
-| -------------------------------------------------------------------------- | ----------- |
-| Research on latest Angular, some best practices, plan for general approach |             |
-| Project Setup & Configuration                                              | 30 minutes  |
-| Data Models & Service Creation                                             | 10 minutes  |
-| Payroll Table Implementation                                               | 60 minutes  |
-| Employee Panel Development                                                 | 30 minutes  |
-| Navigation Panel                                                           | 20 minutes  |
-| Actions Panel                                                              | 30 minutes  |
-| Table Row Actions                                                          | 10 minutes  |
-| Styling & Responsiveness                                                   | 60 minutes  |
-| Testing & Bug Fixes                                                        | 30 minutes  |
-| Documentation                                                              | 20 minutes  |
-| **Total**                                                                  | **5 hours** |
+| Task                                                                       | Time Spent     |
+| -------------------------------------------------------------------------- | -------------- |
+| Research on latest Angular, some best practices, plan for general approach |                |
+| Project Setup & Configuration                                              | 20 minutes     |
+| Data Models & Service Creation                                             | 5 minutes      |
+| Payroll Table Implementation                                               | 50 minutes     |
+| Employee Panel Development                                                 | 30 minutes     |
+| Navigation Panel                                                           | 15 minutes     |
+| Actions Panel                                                              | 20 minutes     |
+| Table Row Actions                                                          | 10 minutes     |
+| Styling & Responsiveness                                                   | 60 minutes     |
+| Testing & Bug Fixes                                                        | 30 minutes     |
+| Documentation                                                              | 20 minutes     |
+| **Total**                                                                  | **4hrs20mins** |
 
 ---
 
@@ -112,7 +112,6 @@ src/
 
 - Not quite sure what the desired behaviour is for the hover on table row action with the "Primary Action". If that's supposed to show on click or if there's any relation to that and the visibility of the Primary and Secondary buttons or the Action 1 and 2 side panel.
 - Not sure what the exclamation mark icon on the table row would indicate, if that would require additional behaviour, a tooltip for example or different actions.
-- No design for the initial employees table so I just mimicing the design patterns as closely as possible on the Employees table as with the Selected Employee view
 
 ## Improvements & Future Enhancements
 
@@ -164,18 +163,18 @@ Given more time:
 
 ### Tools Used
 
-- **GitHub Copilot**: Code completion and suggestions during development (GPT-4o for easy boilerplate/ code completion, Claude Sonnet 4 for more complex questions or solutions needed)
+- **GitHub Copilot**: Code completion and suggestions during development (GPT-4o for easy boilerplate/ code completion, Claude Sonnet 4 for more complex questions or investigation needed)
 
 ### Where & Why Used
 
-#### Code Generation (Claude)
+#### Code Generation
 
 - **Component Templates**: Generated HTML templates for all components with proper Tailwind classes
 - **Mock data**: Quick dummy data to generate a close-to-real-world example of how things might look fully populated.
 - **TypeScript Interfaces**: Generated comprehensive type definitions for employee data
 - **Styling**: Created custom CSS classes and Tailwind configurations
 
-#### Code Completion (GitHub Copilot)
+#### Code Completion
 
 - **Method Signatures**: Suggested proper TypeScript method signatures
 - **CSS Properties**: Completed Tailwind utility classes
@@ -184,16 +183,16 @@ Given more time:
 
 #### Where AI Excelled
 
-1. **Boilerplate Generation**: AI was excellent at creating component structure and basic functionality
-2. **Styling Assistance**: Tailwind CSS integration was seamless with AI-generated code
-3. **Type Safety**: Generated TypeScript interfaces were comprehensive and well-structured
+1. **Boilerplate Generation**: AI was effective at creating component structure and basic functionality
+2. **Styling Assistance**: Tailwind CSS integration was helpful for quick styles and getting something going quickly
+3. **Type Safety and data**: Generated TypeScript interfaces as well as mocked data was comprehensive and well-structured
 4. **Angular Patterns**: Modern Angular patterns (signals, standalone components) were correctly implemented
 
 #### Where AI Fell Short
 
 1. **Complex State Management**: Required manual refinement of signal-based reactive patterns
-2. **Material Design Integration**: Needed significant manual adjustment for proper styling integration
-3. **Responsive Design**: AI-generated layouts required manual optimization for different screen sizes
+2. **Material Design Integration**: Needed a lot of manual adjustment for proper styling integration and conflict with Tailwind
+3. **Responsive Design**: AI-generated layouts required manual optimisation for different screen sizes
 4. **Performance Considerations**: Had to manually implement computed signals for optimal performance
 
 #### Manual Corrections Required
@@ -201,8 +200,8 @@ Given more time:
 1. **Service Architecture**: Refactored the service to use computed signals properly
 2. **CSS Overrides**: Manually adjusted Material Design styles to work with Tailwind. Quite a lot of conflicting styles here.
 3. **A lot of inline styling**: needed to clean up a fair amount to get styling minimal and reusable globally.
-4. **Component Communication**: Implemented proper data flow between components. With loss of context, AI doesn't usually know how components interact with each other. Better for small standalone tasks in my experience.
-5. **Error Handling**: Added proper error handling and loading states
+4. **Component Communication**: Implemented proper data flow between components. With loss of context, AI doesn't usually know how components interact with each other. Better for small standalone tasks in my experience
+5. **Error Handling**: Needed to add proper error handling and loading states
 
 ### Overall Assessment
 
@@ -221,8 +220,7 @@ The application has been tested for:
 
 ---
 
-**Development Time**: ~5 hours  
+**Development Time**: ~4.3 hours  
 **Framework**: Angular 18+  
 **Styling**: Tailwind CSS + Angular Material  
-**State Management**: Angular Signals  
-**Data Source**: Mock JSON
+**State Management**: Angular Signals
