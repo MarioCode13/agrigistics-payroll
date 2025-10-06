@@ -1,0 +1,55 @@
+<div class="min-h-screen bg-[#EFF3F5]">
+  <!-- Main Layout -->
+  <div class="grid grid-cols-[auto,1fr,auto] h-screen">
+    <!-- Left Navigation Panel -->
+    <div class="w-[72px] flex-shrink-0">
+      <app-navigation-panel></app-navigation-panel>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="flex flex-col overflow-hidden min-w-0">
+      <!-- Main Content -->
+      <main class="flex-1 overflow-auto py-6 px-2">
+        <div class="max-w-full mx-auto h-full">
+          @if (currentView() === 'employee-list') {
+          <!-- Employee List View -->
+          <div class="h-full">
+            <app-payroll-table
+              [isEmployeeListMode]="true"
+              (employeeSelected)="onEmployeeSelected($event)"
+            ></app-payroll-table>
+          </div>
+          } @else {
+          <!-- Node View: Payroll Details -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 h-full">
+            <!-- Left Column: Payroll Summary with Back Button -->
+            <div class="lg:col-span-1 h-full">
+              <app-employee-panel
+                [selectedEmployee]="selectedEmployee()"
+                (backToEmployeeList)="onBackToEmployeeList()"
+              ></app-employee-panel>
+            </div>
+
+            <!-- Right Column: Transactions Table -->
+            <div class="lg:col-span-3 overflow-x-auto h-full">
+              <app-payroll-table
+                [isEmployeeListMode]="false"
+                [selectedEmployee]="selectedEmployee()"
+              ></app-payroll-table>
+            </div>
+          </div>
+          }
+        </div>
+      </main>
+    </div>
+
+    <!-- Right Actions Panel -->
+    <div class="action-panel">
+      <div class="p-2">
+        <app-actions-panel></app-actions-panel>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet />

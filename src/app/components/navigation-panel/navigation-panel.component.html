@@ -1,0 +1,35 @@
+<div class="bg-white h-full shadow-sm border-r border-gray-200">
+  <!-- Logo/Brand -->
+  <div class="p-2 border-b border-gray-200 min-h-[88px] flex items-center justify-center">
+    <div class="flex items-center justify-center">
+      <img src="assets/images/logo.svg" alt="Logo" class="w-12 h-12" />
+    </div>
+  </div>
+
+  <!-- Navigation Menu -->
+  <nav class="p-2">
+    <ul class="space-y-6">
+      <li *ngFor="let item of navigationItems">
+        <button
+          (click)="onNavigationClick(item)"
+          class="group w-full flex flex-col items-center px-1 py-2 text-center rounded-lg transition-colors"
+          [class]="
+            item.active
+              ? 'text-primary-500 border bg-navHover-bg'
+              : 'text-gray-600 hover:text-gray-900 hover:bg-navHover-bg'
+          "
+        >
+          <mat-icon
+            class="mb-1"
+            [class]="
+              item.active ? 'text-navHover-icon' : 'text-gray-400 group-hover:text-navHover-icon'
+            "
+          >
+            home
+          </mat-icon>
+          <span class="label">{{ item.label }}</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>

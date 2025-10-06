@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom global styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f9fafb;
+}
+
+/* Typography */
+
+h1 {
+  @apply text-xl font-bold text-text-black;
+}
+
+h2{
+  @apply text-lg font-bold text-text-black tracking-wider;
+}
+
+h5{
+  @apply text-sm font-bold text-text-black tracking-wider;
+}
+
+.caption {
+  @apply text-xs font-normal text-text-gray tracking-wider;
+}
+
+.label {
+  @apply text-xs font-medium;
+}
+
+/* Buttons */
+ 
+.btn-primary {
+  @apply bg-primary-700 text-white px-4 rounded-sm hover:bg-primary-900 transition-colors;
+  height: 36px;
+  line-height: 36px;
+}
+
+.btn-secondary {
+  @apply bg-gray-200 text-gray-700 px-4 rounded-sm hover:bg-gray-300 transition-colors;
+  height: 36px;
+  line-height: 36px;
+}
+
+.btn-secondary-outlined {
+  @apply   text-gray-500 border border-gray-500 px-4 rounded-sm hover:bg-gray-200 transition-colors;
+  height: 36px;
+  line-height: 36px;
+}
+
+/* Components */
+
+.card {
+  @apply bg-white rounded-lg p-6;
+  min-height: 100%;
+  height: auto; 
+  overflow: hidden; /* Prevent content from overflowing */
+}
+
+input::placeholder {
+  color: #333;  
+}
+
+.search-bar {
+  @apply py-2 bg-[#EFF3F5] rounded-full focus:ring-2 focus:ring-primary-500 focus:border-transparent w-full text-text-dark;
+}
+
+      /* Material Snackbar Overrides */
+
+mat-snack-bar-container .mat-mdc-button:hover {
+  color: transparent !important; 
+  background-color: rgba(255, 87, 34, 0.1) !important;  
+}
+ 
+mat-snack-bar-container .mat-mdc-snack-bar-label {
+  font-size: 14px; 
+  font-weight: 500;  
+  color: #333; 
+}
+ 
+
+mat-snack-bar-container .mat-mdc-button .mdc-button__label {
+  font-size: 14px; 
+  font-weight: bold;  
+  color: #666666; 
+}
+
+
+
+/* Table styling */
+
+ 
+.table-header {
+  @apply text-left !text-gray-500 !font-normal py-3 px-4 !bg-white;
+}
+
+.table-cell {
+  @apply py-4 px-4 cursor-pointer hover:bg-gray-50;
+}
+
+.table-cell-text {
+  @apply text-gray-500;
+}
+
+.table-cell-badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.table-row {
+  @apply border border-gray-100  hover:bg-gray-50;
+}
+
+.table-body-wrapper {
+  @apply rounded-lg border !border-gray-200;
+}
+
+/* Layout */
+
+.action-panel {
+  @apply w-20 flex-shrink-0 overflow-y-auto transition-all duration-300 ease-in-out
+}
+
+@media (max-width: 768px) {
+  .action-panel {
+    width: 4rem;
+  }
+}
+
+
+

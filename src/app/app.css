@@ -1,0 +1,59 @@
+/* App-specific styles */
+:host {
+  display: block;
+  height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Layout adjustments */
+.grid {
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    gap: 0rem;
+    row-gap: 0.5rem;  
+  }
+}
+
+/* Header styles */
+header {
+  z-index: 10;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .lg\\:col-span-1,
+  .lg\\:col-span-2 {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .flex {
+    flex-direction: column;
+  }
+  
+  .w-64,
+  .w-80 {
+    width: 100%;
+  }
+} 

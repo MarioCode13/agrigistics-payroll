@@ -1,0 +1,104 @@
+<!-- Employee Summary Section -->
+<div class="card" *ngIf="selectedEmployee">
+  <!-- Top Section -->
+  <div class="flex-col border-b-gray-300">
+    <div class="flex items-center mb-4">
+      <button
+        (click)="backToEmployeeList.emit()"
+        class="flex mr-2 p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100"
+      >
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <h1>{{ selectedEmployee.name }}</h1>
+    </div>
+    <div class="flex justify-between px-4">
+      <div class="flex-col">
+        <p class="text-sm text-text-gray tracking-wider">No.</p>
+        <h5>
+          {{ selectedEmployee.employeeNo }}
+        </h5>
+      </div>
+      <div class="flex-col">
+        <p class="text-sm text-text-gray tracking-wider">Team:</p>
+        <h5>{{ selectedEmployee.team }}</h5>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full Width Divider -->
+  <div class="border-t border-gray-200 mt-4 mx-[-24px]"></div>
+
+  <!-- Bottom Section -->
+  <div>
+    <h2 class="p-4">Overview</h2>
+    <div class="space-y-4 border border-gray-200 p-4 rounded-md mb-2">
+      <!-- Total Earnings -->
+      <div class="flex items-center justify-between">
+        <div class="w-10 h-10 bg-[#A5C757] rounded-md p-2">
+          <mat-icon class="text-white">trending_up</mat-icon>
+        </div>
+        <div class="flex flex-col items-end">
+          <p class="caption">Total Earnings</p>
+          <h2>{{ formatCurrency(totalEarnings()) }}</h2>
+        </div>
+      </div>
+
+      <!-- Total Deductions -->
+      <div class="flex items-center justify-between">
+        <div class="w-10 h-10 bg-[#FF3D00] rounded-md p-2">
+          <mat-icon class="text-white">trending_down</mat-icon>
+        </div>
+        <div class="flex flex-col items-end">
+          <p class="caption">Total Deductions</p>
+          <h2>{{ formatCurrency(totalDeductions()) }}</h2>
+        </div>
+      </div>
+      <!-- Net Total -->
+      <div class="flex items-center justify-between">
+        <div class="w-10 h-10 bg-[#166983] rounded-md p-2">
+          <mat-icon class="text-white">account_balance</mat-icon>
+        </div>
+        <div class="flex flex-col items-end">
+          <p class="caption">Net Total</p>
+          <h2>{{ formatCurrency(netTotal()) }}</h2>
+        </div>
+      </div>
+    </div>
+    <div class="space-y-4 border border-gray-200 p-4 rounded-md">
+      <!-- UIF -->
+      <div class="flex items-center justify-between">
+        <div class="w-10 h-10 bg-[#F5F9EC] rounded-md p-2">
+          <mat-icon class="text-[#7A9933]">security</mat-icon>
+        </div>
+        <div class="flex flex-col items-end">
+          <p class="caption">UIF</p>
+          <h2>{{ formatCurrency(uifAmount()) }}</h2>
+        </div>
+      </div>
+
+      <!-- PAYE -->
+      <div class="flex items-center justify-between">
+        <div class="w-10 h-10 bg-[#F5F9EC] rounded-md p-2">
+          <mat-icon class="text-[#7A9933]">receipt</mat-icon>
+        </div>
+        <div class="flex flex-col items-end">
+          <p class="caption">PAYE</p>
+          <h2>{{ formatCurrency(payeAmount()) }}</h2>
+        </div>
+      </div>
+
+      <!-- Total -->
+      <div class="flex items-center justify-between">
+        <div class="w-10 h-10 bg-[#F5F9EC] rounded-md p-2">
+          <mat-icon class="text-[#7A9933]">summarize</mat-icon>
+        </div>
+        <div class="flex flex-col items-end">
+          <p class="caption">Total</p>
+          <h2 class="text-lg font-bold text-gray-900">
+            {{ formatCurrency(totalEarnings() - totalDeductions()) }}
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
