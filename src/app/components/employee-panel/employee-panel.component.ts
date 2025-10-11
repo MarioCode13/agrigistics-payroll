@@ -18,6 +18,7 @@ import { formatCurrency } from '../../shared/utils/currency.util'
     MatButtonModule
   ],
   templateUrl: './employee-panel.component.html',
+  styleUrls: ['./employee-panel.component.scss']
 })
 export class EmployeePanelComponent implements OnInit {
   @Input() selectedEmployee: Employee | null = null;

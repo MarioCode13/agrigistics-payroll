@@ -1,0 +1,136 @@
+// I'd ideally want to import some of these from a shared theme file and use it like:
+// .overview__heading {
+//   font-size: var(--type-lg); 
+// } for example
+
+@use 'sass:math';
+
+// Variables
+$border-color: #e5e7eb;
+$muted-text: #6b7280; 
+$bg-earnings: #A5C757;
+$bg-deductions: #FF3D00;
+$bg-net: #166983;
+$muted-bg: #F5F9EC;
+$accent-green: #7A9933;
+$card-radius: 8px;
+$icon-size: 40px; 
+
+// spacing theme
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 12px;
+$spacing-lg: 16px;
+
+// typography 
+$base-font-size: 16px; 
+$type-xs: 10px;
+$type-sm: 12px;
+$type-base: 14px;
+$type-lg: 16px;
+$type-xl: 22px;  
+// Convert px -> rem
+@function rem($px) {
+  @return math.div($px, $base-font-size) * 1rem;
+}
+$fw-light: 400;
+$fw-medium: 500;
+$fw-bold: 700;
+$font-default:  Roboto, 'Helvetica Neue', Arial, sans-serif;
+$letter-spacing-wide: 0.05em;
+
+// Mixins
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin icon-shape($bg-color, $color: #fff) {
+  width: $icon-size;
+  height: $icon-size;
+  background: $bg-color;
+  border-radius: 6px;
+  padding: $spacing-sm;
+  @include flex-center;
+
+  .overview__icon-inner {
+    color: $color;  
+  }
+}
+
+:host {
+  font-family: $font-default;
+}
+
+.overview__heading {
+  padding: $spacing-lg 0;
+  font-size: rem($type-lg);
+  letter-spacing: $letter-spacing-wide; 
+  font-weight: $fw-bold;
+}
+ 
+.overview__value { 
+  font-size: rem($type-lg);
+  font-weight: $fw-bold;
+  letter-spacing: $letter-spacing-wide;
+}
+
+.overview__group {
+  border: 1px solid $border-color;
+  padding: $spacing-lg;
+  border-radius: $card-radius;
+  margin-bottom: $spacing-md;
+
+  & + .overview__group {
+    margin-top: $spacing-md;
+  }
+
+}
+
+.overview__row {
+  @include flex-between;
+  margin-bottom: $spacing-md;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.overview__icon {
+  &--earnings { @include icon-shape($bg-earnings); }
+  &--deductions { @include icon-shape($bg-deductions); }
+  &--net { @include icon-shape($bg-net); }
+  &--muted { @include icon-shape($muted-bg, $accent-green);
+    .overview__icon-inner {
+      color: $accent-green;
+    }
+  }
+}
+
+.overview__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.overview__label {
+  color: $muted-text;
+  font-size: rem($type-xs);
+  font-weight: $fw-light;
+  letter-spacing: $letter-spacing-wide; 
+}
+
+
+
+@media (max-width: 480px) {
+  .overview__group {
+    padding: $spacing-sm;
+  }
+  .overview__icon { width: 36px; height: 36px; }
+}
